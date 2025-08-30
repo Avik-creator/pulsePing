@@ -35,6 +35,9 @@ export const metadata: Metadata = {
     countryName: "India",
     images: ["/og-image.png"],
   },
+  icons: {
+    icon: "/icon.ico",
+  },
   twitter: {
     title: "PulsePing",
     card: "summary_large_image",
@@ -44,6 +47,15 @@ export const metadata: Metadata = {
       "PulsePing is a tool that helps you ping your servers and get notified when they are down.",
     images: ["/og-image.png"],
   },
+  category: "technology",
+  applicationName: "PulsePing",
+  authors: [{ name: "Avik Mukherjee", url: "https://avikmukherjee.me" }],
+  creator: "Avik Mukherjee",
+  publisher: "Avik Mukherjee",
+  alternates: {
+    canonical: "https://pulseping.avikmukherjee.me",
+  },
+
 };
 
 export default function RootLayout({
