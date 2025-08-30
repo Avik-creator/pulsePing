@@ -1,4 +1,116 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# PulsePing Frontend
+
+This is the frontend for PulsePing, a server monitoring and notification platform. Built with Next.js, React, Tailwind CSS, shadcn/ui, and Next Auth.
+
+---
+
+## Features
+
+- **Google OAuth Authentication**  
+  Secure login using Google accounts.
+
+- **Dashboard**  
+  View and manage monitored servers, logs, and notifications.
+
+- **Add/Remove Monitored URLs**  
+  Easily add or remove servers to monitor.
+
+- **Responsive UI**  
+  Modern design using Tailwind CSS and shadcn/ui.
+
+- **Email Notifications**  
+  Get notified when your servers go down.
+
+---
+
+## Tech Stack
+
+- **Framework:** Next.js (App Router)
+- **UI:** React, Tailwind CSS, shadcn/ui
+- **Auth:** Next Auth (Google)
+- **State:** React Query
+- **Validation:** Zod
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (v18+)
+- Backend running (see pulse-backend)
+
+---
+
+### 1. Install Dependencies
+
+```sh
+npm install
+```
+
+---
+
+### 2. Configure Environment Variables
+
+Create a `.env` file in `pulse-frontend/`:
+
+```
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+NEXTAUTH_SECRET=your_nextauth_secret
+BACKEND_URL=http://localhost:8000
+```
+
+---
+
+### 3. Run the Development Server
+
+```sh
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+---
+
+## Usage
+
+- **Sign in** with Google.
+- **Add a server URL** to monitor.
+- **View logs** and status on your dashboard.
+- **Receive email notifications** if your server goes down.
+
+---
+
+## Project Structure
+
+```
+pulse-frontend/
+  src/
+    app/
+    components/
+    lib/
+    types/
+    actions/
+  public/
+  ...
+```
+
+---
+
+## Learn More
+
+- [Next.js Documentation](https://nextjs.org/docs)
+- [shadcn/ui](https://ui.shadcn.com/)
+- [Next Auth](https://next-auth.js.org/)
+
+---
+
+## License
+
+MIT
+
+---
 
 ## Getting Started
 
