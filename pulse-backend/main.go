@@ -14,30 +14,29 @@ import (
 )
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
+	// Load .env only for local development
+	if _, exists := os.LookupEnv("PORT"); !exists {
+		_ = godotenv.Load()
 	}
+
 	database.ConnectToDB()
 	if err := database.AutoMigrate(&models.User{}, &models.Log{}, &models.Task{}); err != nil {
 		log.Fatal("Failed to migrate database:", err)
 	}
 
-	if err != nil {
-		log.Fatal("Error starting server:", err)
-	}
-
 	router := gin.Default()
 	routes.SetupRouter(router)
+
 	PORT := os.Getenv("PORT")
+	if PORT == "" {
+		PORT = "8000" // fallback
+	}
 
 	go workers.StartPulseWorker()
 	go workers.NotificationWorker()
 
-
-	router.Run(":" + PORT)
-
-
+	log.Println("Server running on port", PORT)
+	if err := router.Run(":" + PORT); err != nil {
+		log.Fatal("Failed to start server:", err)
+	}
 }
-
-
