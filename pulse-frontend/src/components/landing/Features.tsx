@@ -18,7 +18,7 @@ export default function Features() {
       icon: Bell,
       title: "Automatic Health Checks",
       description:
-        "We ping your server or app every 10 minutes to ensure it's up and running with a 200 OK response.",
+        "We ping your server or app every 5 minutes to ensure it's up and running with a 200 OK response.",
     },
     {
       icon: Shield,
