@@ -1,6 +1,6 @@
 module github.com/Avik-creator/pulse-backend
 
-go 1.25.0
+go 1.24.0
 
 require gorm.io/driver/postgres v1.6.0
 
