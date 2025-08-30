@@ -8,17 +8,6 @@ export const Hero = () => {
   return (
     <section className="w-full py-12 md:py-24 lg:py-32 relative flex flex-col gap-20">
       <div className="flex flex-col items-center text-center space-y-8">
-        <a
-          href="https://github.com/Avik-creator/pulse"
-          target="_blank"
-          rel="noreferrer"
-        >
-          <div className="flex items-center justify-center gap-4 rounded-full text-white/80 bg-black/50 border border-gray-700 px-6 py-2 text-sm hover:bg-black/70 transition-colors">
-            <GitHubLogoIcon className="h-4 w-4" />
-            <span>Star us on Github</span>
-          </div>
-        </a>
-
         <div className="space-y-4">
           <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none max-w-3xl mx-auto">
             Wake Up Your Sleepy Servers!
