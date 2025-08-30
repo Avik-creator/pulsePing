@@ -6,7 +6,7 @@ import { Navbar } from "@/components/landing/Navbar";
 import Providers from "@/components/providers/SessionProvider";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
-
+import Script from "next/script";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -53,6 +53,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <Script
+          defer
+          data-domain="pulseping.avikmukherjee.me"
+          src="https://webtracker.avikmukherjee.me/tracking-script.js"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} px-2 md:px-0 bg-background text-foreground`}
       >
