@@ -63,7 +63,7 @@ export const Hero = () => {
 
       <div className="relative">
         <img
-          src="/images/landing-hero.jpeg"
+          src="/Pulseping.png"
           alt="Landing page background"
           width={1512}
           height={1405}

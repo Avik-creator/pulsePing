@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "PulsePing",
     locale: "en_US",
     countryName: "India",
-    images: ["/assets/og-image.png"],
+    images: ["/og-image.png"],
   },
   twitter: {
     title: "PulsePing",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     creator: "@avikm744",
     description:
       "PulsePing is a tool that helps you ping your servers and get notified when they are down.",
-    images: ["/assets/og-image.png"],
+    images: ["/og-image.png"],
   },
 };
 
