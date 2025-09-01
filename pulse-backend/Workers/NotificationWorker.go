@@ -4,6 +4,7 @@ import (
 	"context"
 	"fmt"
 	"log"
+	"net/http"
 	"strconv"
 	"time"
 
@@ -49,8 +50,25 @@ func handleTask(task string) {
 		return
 	}
 
-	if dbTask.NotifyEmail {
-		sendToNotificationEmail(user.Email, dbTask.URL)
+	// If user has not opted into email notifications, skip.
+	if !dbTask.NotifyEmail {
+		return
+	}
+
+	// Load the most recent log for this task to decide whether to notify.
+	var lastLog models.Log
+	if err := database.DB.Where("task_id = ?", dbTask.ID).Order("created_at desc").First(&lastLog).Error; err != nil {
+		log.Printf("No logs found for task %d: %v", dbTask.ID, err)
+		return
+	}
+
+	// Send notification when the last check failed or returned an HTTP 404.
+	if !lastLog.IsSuccess || lastLog.RespCode == http.StatusNotFound {
+		if err := sendToNotificationEmail(user.Email, dbTask.URL); err != nil {
+			log.Printf("Notification send failed for task %d: %v", dbTask.ID, err)
+		}
+	} else {
+		log.Printf("Skipping notification for task %d - last check was successful (code %d)", dbTask.ID, lastLog.RespCode)
 	}
 }
 
